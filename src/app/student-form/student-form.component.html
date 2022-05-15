@@ -1,0 +1,45 @@
+<div class="container center">
+  <div class="container">
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+        <h1 class="display-4-text-center">Student Information</h1>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <form novalidate #form="ngForm" (submit)="onSubmit(form)">
+        <input type="hidden" name="studentId" [value]="service.FormData.studentId">
+        <div class="form-groub">
+          <label>Name</label>
+          <input class="form-control form-control-lg" placeholder="Enter your name" name="name" #name="ngModel"
+            [(ngModel)]="service.FormData.name" autocomplete="off" required>
+        </div>
+        <div class="form-groub">
+          <label>Dpartment</label>
+          <input class="form-control form-control-lg" placeholder="Enter your Department" name="department"
+            #department="ngModel" [(ngModel)]="service.FormData.department" required>
+        </div>
+        <div class="form-groub">
+          <label>NationalId</label>
+          <input class="form-control form-control-lg" placeholder="14 Number National Id" name="nationalId"
+            #nationalId="ngModel" [(ngModel)]="service.FormData.nationalId" maxlength="14" minlength="14"
+            autocomplete="off" required>
+        </div>
+        <div class="form-groub">
+          <label>PhoneNumber</label>
+          <input class="form-control form-control-lg" placeholder="11 Digits Phone number" name="phoneNumber"
+            #phoneNumber="ngModel" [(ngModel)]="service.FormData.phoneNumber" maxlength="11" minlength="11"
+            autocomplete="off" required>
+        </div>
+        <div class="form-groub">
+          
+            <button class="btn btn-primary" type="submit" [disabled]="form.invalid">Submit</button>
+            <button style="right: initial;" (click)="onClick(form)"  class="btn btn-primary" routerLink="/home">View Students List</button>
+          
+        </div>
+      </form>
+      <!-- <div class="center">
+  <button routerLink="/home">View Students List</button>
+</div> -->
+    </div>
+  </div>
+</div>
